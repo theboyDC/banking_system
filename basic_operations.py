@@ -31,15 +31,26 @@ class Account:
     print(f"You have R{itself.balance}")
 
 account1 = Account("Washington", 5001, 10000 )
-account1.withdraw()
-account1.checking_balance()
 
-# class Bank():
-#   def __init__(itself, account_number):
-#     itself.account_number = account_number
 
-#   def create_account(itself):
+#creating a Bank class
+class Bank():
+  def __init__(itself):
+    itself.accounts = {5001: "Washington",
+                       5002: "Edward",
+                       5003: "Nobuhle", 
+                       5004: "Queen"}
 
+  def create_account(itself,name,number, initial_deposit=0):
+    if number in itself.accounts:
+      print("Account number already exists")
+    else:
+      account = Account(name, number, initial_deposit)
+      itself.accounts[number] = account       #<------ number is used as the key & account(the object created in the previous line) is the value.
+      print("Account created successfully")
+
+absa= Bank()
+absa.create_account("micheal", 5006, 0)
 
 
 
